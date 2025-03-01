@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>House Price Prediction</title>
+    <style>
+        body{color: rgb(45, 218, 227); background-color: bisque;}
+        body { font-family: Arial, sans-serif; margin: 40px; }
+        .container { max-width: 600px; margin: auto; padding: 20px; border: 1px solid #6efe06; border-radius: 8px; background-color: darkcyan; }
+        input, button { width: 95%; padding: 10px; margin: 5px 0; border: #db3011;}
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>House Price Prediction</h2>
+        <form method="POST">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit">Predict</button>
+        </form>
+
+        {% if prediction %}
+            <h3>Predicted Price: R.S:{{ prediction|floatformat:2 }}</h3>
+        {% endif %}
+    </div>
+</body>
+</html>
